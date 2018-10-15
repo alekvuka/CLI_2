@@ -12,3 +12,11 @@ require "CLI_2"
 
 require "irb"
 IRB.start(__FILE__)
+
+#------------------------------
+
+puts "What clinic website would like information from?"
+
+web_url = gets.strip
+
+CLI.new(web_url)
