@@ -31,7 +31,7 @@ class Scraper
     array_of_providers = Array.new
 
 
-    #getting name, qualification and title attributes 
+    #getting name, qualification and title attributes for a secific provider
     doc.css(".middleColumn_three").css('h3').each do |provider|
       new_hash = Hash.new
       team_specialties_languages = provider.text.split(",")
@@ -41,14 +41,25 @@ class Scraper
       array_of_providers << new_hash
     end
 
+    #getting the team, specialties and languages attributes for a specific provider
 
+    i = 0
+    doc.css(".middleColumn_three").css('ul').each do |provider|
+      t_s_l_array = provider.text.split("\n").reject { |n| n == "" }
 
-    #binding.pry
+      cleaned_t_s_l_array = t_s_l_array.map do |ele|
+        ele.gsub(/\w+[:]/, "").strip
+      end
 
+      array_of_providers[i][:team] = cleaned_t_s_l_array[0]
+      array_of_providers[i][:specialties] = cleaned_t_s_l_array[1]
+      array_of_providers[i][:languages] = cleaned_t_s_l_array[2]
 
+      if i < 46
+        i += 1
+      end
 
-
-
+    end
 
   end
 
