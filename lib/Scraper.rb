@@ -9,10 +9,13 @@ class Scraper
     html = open(clinic_url)
     doc = Nokogiri::HTML(html)
 
-    
+    name_title = doc.css(".middleColumn_three").css('h3').first.text
+    name =
+    titile =
 
-
-
+    #team
+    #specialties
+    #languages
 
     binding.pry
 
