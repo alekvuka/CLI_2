@@ -28,9 +28,9 @@ class CLI
 
     if valid?(user_input) == true
       if user_input == 1
-        input_1(user_input)
+        choice_1
       else
-        input_2(user_input)
+        choice_2
       end
     end
     self.start
@@ -46,7 +46,7 @@ class CLI
   end
 
 
-  def input_1(user_input)
+  def choice_1
     all_providers = Providers.all
     all_providers.each do |provider|
       puts provider.name
@@ -54,7 +54,11 @@ class CLI
   end
 
 
-  def input_2(user_input)
+  def choice_2
+
+    puts "Which provider would you like to know more about?"
+    user_input = gets.strip
+
     all_providers = Providers.all
     req_provider = all_providers.select do |provider|
       user_input == provider.name
