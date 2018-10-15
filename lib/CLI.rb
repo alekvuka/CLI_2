@@ -1,11 +1,13 @@
 #this is the class that is responsible for interacting with the user
 
+require_relative "Scraper.rb"
+
 class CLI
 
 
-  def initialize(clinic_url)
+  def initialize(clinic_url = "http://callen-lorde.org/meet-our-providers/")
     Scraper.scrape_page(clinic_url)
-    self.start
+    #self.start
   end
 
 
@@ -15,6 +17,8 @@ class CLI
     puts "2) Details on a specific provider"
 
     user_input = gets.strip
+
+    #binding.pry
 
     if valid?(user_input.to_i) == true
       if user_input == 1
@@ -34,6 +38,7 @@ class CLI
       false
     end
   end
+
 
   def input_1(user_input)
     all_providers = Providers.all

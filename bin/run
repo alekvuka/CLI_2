@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+#require "bundler/setup"
+#require "CLI_2"
+
+require_relative "../lib/CLI.rb"
+
+
+
+#puts "What clinic website would like information from?"
+
+#web_url = gets.strip
+
+CLI.new("http://callen-lorde.org/meet-our-providers/")
+CLI.start
