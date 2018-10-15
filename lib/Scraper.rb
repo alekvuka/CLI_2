@@ -15,8 +15,13 @@ class Scraper
     qualification = name_qualifications_title[1]
     title = name_qualifications_title[2]
 
-    team_specialties_languages = doc.css(".middleColumn_three").css('ul').first.text.split("\n")
-    t_s_l = team_specialties_languages.delete("")
+    team_specialties_languages = doc.css(".middleColumn_three").css('ul').first.text
+    t_s_l_array = team_specialties_languages.split("\n").reject { |n| n == "" }
+    #sorted_t_s_l_array
+    sorted_t_s_l_array = t_s_l_array.map do |ele|
+      ele.gsub(/\w+[:]/, "").strip
+      #ele.reject(/\w+[:]/, "").strip
+    end
 
 
 
