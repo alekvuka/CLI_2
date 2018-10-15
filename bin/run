@@ -11,5 +11,5 @@ require_relative "../lib/CLI.rb"
 
 #web_url = gets.strip
 
-CLI.new("http://callen-lorde.org/meet-our-providers/")
-CLI.start
+new_user_interaction = CLI.new("http://callen-lorde.org/meet-our-providers/")
+new_user_interaction.start

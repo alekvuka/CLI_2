@@ -2,10 +2,12 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
+require_relative "Providers.rb"
+
 
 class Scraper
 
-  def self.scrape_page(clinic_url)
+  def self.scrape_page(clinic_url = "http://callen-lorde.org/meet-our-providers/")
     html = open(clinic_url)
     doc = Nokogiri::HTML(html)
 
@@ -61,8 +63,18 @@ class Scraper
 
     end
 
+    array_of_providers.each do |provider|
+      Providers.new(provider)
+    end
+
+
+
   end
 
 end
 
-Scraper.scrape_page("http://callen-lorde.org/meet-our-providers/")
+#Scraper.scrape_page("http://callen-lorde.org/meet-our-providers/")
+
+#prv = Providers.all
+
+#binding.pry
