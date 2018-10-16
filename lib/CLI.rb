@@ -37,22 +37,14 @@ class CLI
 
   end
 
-  def valid?(user_input)
-    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4
-      true
-    else
-      false
-    end
-  end
-
-
   def choice_1
-    puts "=========================="
-    all_providers = Providers.all
-    all_providers.each do |provider|
-      puts provider.name
-    end
-    puts "=========================="
+
+
+    name_array = Providers.all.map do |provider|
+              provider.name
+            end
+    printer(name_array)
+
   end
 
 
@@ -61,14 +53,15 @@ class CLI
     puts "Which provider would you like to know more about?"
     user_input = gets.strip
 
+
+
     all_providers = Providers.all
     req_provider = all_providers.detect do |provider|
       user_input == provider.name
+      #binding.pry
       end
 
-    hash_empty?(req_provider)
-
-    binding.pry
+    return_validator(req_provider)
 
     puts "=============================="
     puts "#{req_provider.name}'s team: #{req_provider.team}"
@@ -93,18 +86,8 @@ class CLI
       end
     end
 
-  
-
-    hash_empty?(return_array)
-
-    i = 0
-    while i < return_array.size
-      puts return_array[i]
-      i+=1
-    end
-
-
-
+    return_validator(return_array)
+    printer(return_array)
 
   end
 
@@ -118,35 +101,65 @@ class CLI
 
     all_providers.each do |provider|
       temp_arr = provider.specialties.split(",")
+
       i = 0
       while i < temp_arr.size
-        if temp_arr[i] = user_input
+        #binding.pry
+        if temp_arr[i].strip == user_input
           return_array << provider.name
         end
         i+=1
       end
     end
 
-    hash_empty?(return_array)
+    return_validator(return_array)
+    printer(return_array.uniq)
 
-    return_array = return_array.uniq
+  end
 
-    i = 0
-    while i < return_array.size
-      puts return_array[i]
-      i+=1
+  def valid?(user_input)
+    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4
+      true
+    else
+      false
     end
   end
 
+  def return_validator(array_or_hash)
 
-  def hash_empty?(test_hash)
-    if test_hash == nil || test_hash.empty?
+    #binding.pry
+
+    if array_or_hash == nil #|| array_or_hash.any?
       puts "======================================================================================================"
       puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
       puts "======================================================================================================"
       start
+
+    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
+      puts "======================================================================================================"
+      puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
+      puts "======================================================================================================"
+      start
+
     end
+
+
+
   end
 
+  def printer(arry_to_print)
+
+
+    puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
+
+    i = 0
+    while i < arry_to_print.size
+      puts arry_to_print[i]
+      i+=1
+    end
+    puts "^^^^^^               THE PROVIDERS ARE LISTED ABOVE                         ^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+
+  end
 
 end
