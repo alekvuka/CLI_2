@@ -17,19 +17,19 @@ class Teams
 
   def self.add_by_name(team_name, provider)
 
-    our_team = @@all.select do |team|
-                      team.name == team_name
-                    end
+      our_team = @@all.select do |team|
+                        team.name == team_name
+                      end
 
-    if our_team == false || our_team == nil || our_team.length == 0
-      new_team = Teams.new(team_name)
-      new_team.providers << provider
-      new_team
+      if our_team == false || our_team == nil || our_team.length == 0
+        new_team = Teams.new(team_name)
+        new_team.providers << provider
+        new_team
+      else
+        our_team[0].providers << provider
+        our_team
+      end
 
-    else
-      our_team[0].providers << provider
-      our_team
-    end
   end
 
 
@@ -46,14 +46,14 @@ class Teams
         end
       end
 
-      list_of_providers.join(', ')
+      list_of_providers
   end
 
   def self.team_by_provider(provider)
 
     @@all.each do |team|
       team.providers.each do |pvdr|
-        
+
         if pvdr == provider
           return team.name
         end

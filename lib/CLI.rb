@@ -32,10 +32,10 @@ class CLI
       choice_2
     elsif user_input == 3
       choice_3
-    elsif user_input == 5
-      choice_5
-    else
+    elsif user_input == 4
       choice_4
+    else
+      choice_5
     end
 
     start
@@ -81,19 +81,19 @@ class CLI
 
   def choice_3
 
-    puts "From what team would you like to get a list of providers (Orange, Green, Purple, Blue)"
-    user_input = gets.strip
+    instances_of_teams = Teams.all
 
-    return_array = Array.new
-
-    Providers.all.each do |provider|
-      if provider.team == user_input
-        return_array << provider.name
-      end
+    puts "These are all the current teams:"
+    instances_of_teams.each do |team|
+      binding.pry
+      puts team.name
     end
 
-    return_validator(return_array)
-    printer(return_array)
+    puts "For which team would you like a list of providers?"
+    user_input = gets.strip
+
+    puts "Here is the list of providers for providers that are part of #{user_input} team:"
+    printer(Teams.providers_by_team(user_input))
 
   end
 
