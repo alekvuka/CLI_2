@@ -124,24 +124,22 @@ class CLI
     instances_of_languages = Languages.all
 
     puts "These are all the languages that the current providers speak:"
-
     instances_of_languages.each do |language|
       puts language.name
     end
 
     puts "For which one would you like a list of providers?"
     user_input = gets.strip
-
-    puts "Here is the list of providers for providers that speak #{user_input}:"
-
-    instances_of_languages.each do |language|
     
+    puts "Here is the list of providers for providers that speak #{user_input}:"
+    instances_of_languages.each do |language|
       if language.name == user_input
         language.providers.each do |provider|
           puts provider.name
         end
       end
     end
+
   end
 
 #=================== Helper Methods ====================
