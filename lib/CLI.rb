@@ -32,7 +32,7 @@ class CLI
     else
       choice_4
     end
-    
+
     start
 
   end
@@ -66,6 +66,9 @@ class CLI
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
     puts "#{req_provider.name}'s languages: #{req_provider.languages}"
     puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"
+    if req_provider.title != nil
+      puts "#{req_provider.name}'s title: #{req_provider.title}"
+    end 
     puts "=============================="
 
   end
