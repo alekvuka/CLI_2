@@ -18,6 +18,7 @@ class CLI
     puts "2) Details on a specific provider"
     puts "3) List of providers by their team"
     puts "4) List of providers by their specialty"
+    puts "5) List of providers by their languages"
 
     user_input = gets.strip.to_i
 
@@ -30,6 +31,8 @@ class CLI
       choice_2
     elsif user_input == 3
       choice_3
+    elsif user_input == 5
+      choice_5
     else
       choice_4
     end
@@ -116,10 +119,35 @@ class CLI
 
   end
 
+  def choice_5
+
+    instances_of_languages = Languages.all
+
+    puts "These are all the languages that the current providers speak:"
+
+    instances_of_languages.each do |language|
+      puts language.name
+    end
+
+    puts "For which one would you like a list of providers?"
+    user_input = gets.strip
+
+    puts "Here is the list of providers for providers that speak #{user_input}:"
+
+    instances_of_languages.each do |language|
+      binding.pry
+      if language.name == user_input
+        language.providers.each do |provider|
+          puts provider.name
+        end
+      end
+    end
+  end
+
 #=================== Helper Methods ====================
 
   def valid?(user_input)
-    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4
+    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4 || user_input == 5
       true
     else
       puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"

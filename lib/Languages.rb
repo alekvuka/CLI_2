@@ -15,23 +15,34 @@ class Languages
     @@all << self
   end
 
-  def self.add_by_name(name, provider)
+  def self.add_by_name(language_names, provider)
+
 
     #accounting for providers who speak multiple languages
-    ary = name.split(",")
+    ary = language_names.split(",")
+
+
+    i = 0
+    while i < ary.size
+      ary[i] = ary[i].strip
+      i+=1
+    end
 
     ary.each do |language|
 
-      if @@all.any? {|lang| lang.name == language.strip}
-        our_language = @@all.detect do |langu|
+      if @@all.any? {|lang| lang.name == language}
+        our_language = @@all.find do |langu|
                           langu.name = language.strip
                         end
 
         our_language.providers << provider
+        provider.languages = our_language
+
 
       else
         new_language = Languages.new(language)
         new_language.providers << provider
+        provider.languages = new_language
       end
 
     end
@@ -49,10 +60,12 @@ class Languages
           end
         end
       end
-
-      #binding.pry
       provider_languages.join(',')
 
+  end
+
+  def self.all
+    @@all
   end
 
 end
