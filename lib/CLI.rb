@@ -17,7 +17,7 @@ class CLI
     puts "1) List of all providers"
     puts "2) Details on a specific provider"
     puts "3) List of providers by their team"
-    puts "4) List of providers by specialties (Adolescent Health, Family Practice, HIV, Adult Primary Care, Internal Medicine)"
+    puts "4) List of providers by their specialty"
 
     user_input = gets.strip.to_i
 
@@ -66,6 +66,10 @@ class CLI
       user_input == provider.name
       end
 
+    hash_empty?(req_provider)
+
+    binding.pry
+
     puts "=============================="
     puts "#{req_provider.name}'s team: #{req_provider.team}"
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
@@ -81,15 +85,31 @@ class CLI
 
     all_providers = Providers.all
 
+    return_array = Array.new
+
     all_providers.each do |provider|
       if provider.team == user_input
-        puts provider.name
+        return_array << provider.name
       end
     end
+
+  
+
+    hash_empty?(return_array)
+
+    i = 0
+    while i < return_array.size
+      puts return_array[i]
+      i+=1
+    end
+
+
+
+
   end
 
   def choice_4
-    puts "From what specialty would you like to get a list of providers Adolescent Health, Family Practice, HIV, Adult Primary Care, Internal Medicine)"
+    puts "From what specialty: Adolescent Health, Family Practice, HIV, Adult Primary Care or Internal Medicine"
     user_input = gets.strip
 
     all_providers = Providers.all
@@ -106,6 +126,9 @@ class CLI
         i+=1
       end
     end
+
+    hash_empty?(return_array)
+
     return_array = return_array.uniq
 
     i = 0
@@ -113,8 +136,16 @@ class CLI
       puts return_array[i]
       i+=1
     end
+  end
 
 
+  def hash_empty?(test_hash)
+    if test_hash == nil || test_hash.empty?
+      puts "======================================================================================================"
+      puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
+      puts "======================================================================================================"
+      start
+    end
   end
 
 
