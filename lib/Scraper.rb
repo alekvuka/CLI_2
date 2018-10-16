@@ -49,10 +49,12 @@ class Scraper
     doc.css(".middleColumn_three").css('ul').each do |provider|
       team_specialties_languanges = provider.text.split("\n").reject { |n| n == "" }
 
+      #remove words that end with ":"
       team_specialties_languanges = team_specialties_languanges.map do |ele|
         ele.gsub(/\w+[:]/, "").strip
       end
 
+      #accointing for use case where attribute team is missing
       if team_specialties_languanges.size == 2
         array_of_providers[i][:specialties] = team_specialties_languanges[0].strip
         array_of_providers[i][:languages] = team_specialties_languanges[1]
@@ -70,11 +72,12 @@ class Scraper
 
     end
 
-    #creatign instances from our array of hashes 
+    #creatign instances from our array of hashes
     array_of_providers.each do |provider|
       Providers.new(provider)
+
     end
 
   end
-
+  
 end
