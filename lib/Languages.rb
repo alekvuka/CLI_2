@@ -35,6 +35,7 @@ class Languages
         our_language = @@all.find do |langu|
                           langu.name = language.strip
                         end
+        binding.pry
         our_language.providers << provider
         language_instances_to_return << our_language
       else
