@@ -9,7 +9,6 @@ class CLI
     Scraper.scrape_page(clinic_url)
   end
 
-
   def start
 
     puts "Choose from the following menu:"
@@ -52,8 +51,7 @@ class CLI
     puts "Which provider would you like to know more about?"
     user_input = gets.strip
 
-    all_providers = Providers.all
-    req_provider = all_providers.detect do |provider|
+    req_provider = Providers.all.detect do |provider|
       user_input == provider.name
       end
 
@@ -68,7 +66,7 @@ class CLI
     puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"
     if req_provider.title != nil
       puts "#{req_provider.name}'s title: #{req_provider.title}"
-    end 
+    end
     puts "=============================="
 
   end
