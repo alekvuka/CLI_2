@@ -64,7 +64,9 @@ class CLI
     return_validator(req_provider)
 
     puts "=============================="
-    puts "#{req_provider.name}'s team: #{req_provider.team}"
+    if req_provider.team != nil
+      puts "#{req_provider.name}'s team: #{req_provider.team}"
+    end 
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
     puts "#{req_provider.name}'s languages: #{req_provider.languages}"
     puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"

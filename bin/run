@@ -6,10 +6,5 @@
 require_relative "../lib/CLI.rb"
 
 
-
-#puts "What clinic website would like information from?"
-
-#web_url = gets.strip
-
 new_user_interaction = CLI.new("http://callen-lorde.org/meet-our-providers/")
 new_user_interaction.start
