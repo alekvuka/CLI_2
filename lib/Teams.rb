@@ -52,9 +52,9 @@ class Teams
   def self.team_by_provider(provider)
 
     @@all.each do |team|
-      binding.pry
-      team.provider.each do |pvdr|
-        if pvdr.name == provider
+      team.providers.each do |pvdr|
+        
+        if pvdr == provider
           return team.name
         end
       end
