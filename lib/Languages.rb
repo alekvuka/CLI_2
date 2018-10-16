@@ -6,8 +6,7 @@ class Languages
 
   @@all = Array.new
 
-  attr_accessor :name
-  attr_reader :providers
+  attr_accessor :name, :providers
 
   def initialize(name)
     @name = name
@@ -15,9 +14,9 @@ class Languages
     @@all << self
   end
 
+
   def self.add_by_name(language_names, provider)
 
-    #accounting for providers who speak multiple languages
     ary = language_names.split(",")
     language_instances_to_return = Array.new
 
@@ -27,19 +26,19 @@ class Languages
       i+=1
     end
 
-    ary.each do |language|
+    ary.each do |language_name|
 
-      binding.pry
+      our_language = @@all.select do |langu|
+                        langu.name == language_name
+                      end
 
-      if @@all.any? {|lang| lang.name == language}
-        our_language = @@all.find do |langu|
-                          langu.name = language.strip
-                        end
-        binding.pry
+      if our_language == false || our_language == nil || our_language.length == 0
+        our_language = Languages.new(language_name)
         our_language.providers << provider
         language_instances_to_return << our_language
+
       else
-        our_language = Languages.new(language)
+        binding.pry
         our_language.providers << provider
         language_instances_to_return << our_language
       end
@@ -50,7 +49,6 @@ class Languages
 
   def self.languages_by_provider(provider)
 
-    binding.pry
       provider_languages = Array.new
 
       @@all.each do |language|
@@ -61,7 +59,6 @@ class Languages
         end
       end
       provider_languages.join(',')
-
   end
 
   def self.all
