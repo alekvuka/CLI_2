@@ -56,10 +56,10 @@ class CLI
     all_providers = Providers.all
     req_provider = all_providers.detect do |provider|
       user_input == provider.name
-      binding.pry
+      #binding.pry
       end
 
-      binding.pry
+      #binding.pry
 
     puts "=============================="
     #puts "Provider name: #{req_provider.name}"
