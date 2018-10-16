@@ -31,15 +31,15 @@ class Languages
       our_language = @@all.select do |langu|
                         langu.name == language_name
                       end
+                      
 
       if our_language == false || our_language == nil || our_language.length == 0
-        our_language = Languages.new(language_name)
-        our_language.providers << provider
+        new_language = Languages.new(language_name)
+        new_language.providers << provider
         language_instances_to_return << our_language
 
       else
-        binding.pry
-        our_language.providers << provider
+        our_language[0].providers << provider
         language_instances_to_return << our_language
       end
 
