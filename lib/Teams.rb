@@ -16,19 +16,25 @@ class Teams
 
 
   def self.add_by_name(team_name, provider)
+    binding.pry
 
+    if team_name == nil
+      nil
+    else
       our_team = @@all.select do |team|
-                        team.name == team_name
+                        team.name == team_name.strip
                       end
 
       if our_team == false || our_team == nil || our_team.length == 0
-        new_team = Teams.new(team_name)
+        new_team = Teams.new(team_name.strip)
         new_team.providers << provider
         new_team
       else
         our_team[0].providers << provider
         our_team
       end
+
+    end
 
   end
 

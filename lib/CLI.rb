@@ -85,7 +85,7 @@ class CLI
 
     puts "These are all the current teams:"
     instances_of_teams.each do |team|
-      binding.pry
+      #binding.pry
       puts team.name
     end
 
