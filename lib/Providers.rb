@@ -7,9 +7,9 @@ class Providers
   def initialize(attr_hash)
 
     @name = attr_hash[:name]
-    @team = attr_hash[:team]
+    @team = Teams.add_by_name(attr_hash[:team], self)
     @specialties = attr_hash[:specialties]
-    Languages.add_by_name(attr_hash[:languages], self)
+    @languages = Languages.add_by_name(attr_hash[:languages], self)
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
 

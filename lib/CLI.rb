@@ -3,6 +3,7 @@
 require_relative "Scraper.rb"
 require_relative "Providers.rb"
 require_relative "Languages.rb"
+require_relative "Teams.rb"
 
 class CLI
 
@@ -65,8 +66,8 @@ class CLI
     return_validator(req_provider)
 
     puts "=============================="
-    if req_provider.team != nil
-      puts "#{req_provider.name}'s team: #{req_provider.team}"
+    if Teams.team_by_provider(req_provider) != nil
+      puts "#{req_provider.name}'s team: #{Teams.team_by_provider(req_provider)}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
     puts "#{req_provider.name}'s languages: #{Languages.languages_by_provider(req_provider)}"
@@ -130,7 +131,7 @@ class CLI
 
     puts "For which one would you like a list of providers?"
     user_input = gets.strip
-    
+
     puts "Here is the list of providers for providers that speak #{user_input}:"
     instances_of_languages.each do |language|
       if language.name == user_input
