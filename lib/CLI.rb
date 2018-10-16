@@ -27,8 +27,10 @@ class CLI
         choice_1
       elsif user_input == 2
         choice_2
-      else
+      elsif user_input == 3
         choice_3
+      else
+        choice_4
       end
     end
     start
@@ -36,7 +38,7 @@ class CLI
   end
 
   def valid?(user_input)
-    if user_input == 1 || user_input == 2 || user_input == 3
+    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4
       true
     else
       false
@@ -84,6 +86,35 @@ class CLI
         puts provider.name
       end
     end
+  end
+
+  def choice_4
+    puts "From what specialty would you like to get a list of providers Adolescent Health, Family Practice, HIV, Adult Primary Care, Internal Medicine)"
+    user_input = gets.strip
+
+    all_providers = Providers.all
+
+    return_array = Array.new
+
+    all_providers.each do |provider|
+      temp_arr = provider.specialties.split(",")
+      i = 0
+      while i < temp_arr.size
+        if temp_arr[i] = user_input
+          return_array << provider.name
+        end
+        i+=1
+      end
+    end
+    return_array = return_array.uniq
+
+    i = 0
+    while i < return_array.size
+      puts return_array[i]
+      i+=1
+    end
+
+
   end
 
 
