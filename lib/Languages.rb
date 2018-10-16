@@ -31,7 +31,7 @@ class Languages
       our_language = @@all.select do |langu|
                         langu.name == language_name
                       end
-                      
+
 
       if our_language == false || our_language == nil || our_language.length == 0
         new_language = Languages.new(language_name)
@@ -58,7 +58,7 @@ class Languages
           end
         end
       end
-      provider_languages.join(',')
+      provider_languages.join(', ')
   end
 
   def self.all
