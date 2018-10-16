@@ -36,16 +36,17 @@ class Languages
                         end
 
         our_language.providers << provider
-        provider.languages = our_language
+        our_language
 
 
       else
-        new_language = Languages.new(language)
-        new_language.providers << provider
-        provider.languages = new_language
+        our_language = Languages.new(language)
+        our_language.providers << provider
+        our_language
       end
 
     end
+    our_language
 
   end
 
