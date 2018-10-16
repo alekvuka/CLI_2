@@ -135,7 +135,7 @@ class CLI
     puts "Here is the list of providers for providers that speak #{user_input}:"
 
     instances_of_languages.each do |language|
-      binding.pry
+    
       if language.name == user_input
         language.providers.each do |provider|
           puts provider.name
