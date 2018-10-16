@@ -47,22 +47,20 @@ class Scraper
     #getting the team, specialties and languages attributes for a specific provider
     i = 0
     doc.css(".middleColumn_three").css('ul').each do |provider|
-      t_s_l_array = provider.text.split("\n").reject { |n| n == "" }
+      team_specialties_languanges = provider.text.split("\n").reject { |n| n == "" }
 
-      cleaned_t_s_l_array = t_s_l_array.map do |ele|
+      team_specialties_languanges = team_specialties_languanges.map do |ele|
         ele.gsub(/\w+[:]/, "").strip
       end
 
-      #binding.pry
-
-      if cleaned_t_s_l_array.size == 2
-        array_of_providers[i][:specialties] = cleaned_t_s_l_array[0].strip
-        array_of_providers[i][:languages] = cleaned_t_s_l_array[1]
+      if team_specialties_languanges.size == 2
+        array_of_providers[i][:specialties] = team_specialties_languanges[0].strip
+        array_of_providers[i][:languages] = team_specialties_languanges[1]
 
       else
-        array_of_providers[i][:team] = cleaned_t_s_l_array[0]
-        array_of_providers[i][:specialties] = cleaned_t_s_l_array[1]
-        array_of_providers[i][:languages] = cleaned_t_s_l_array[2]
+        array_of_providers[i][:team] = team_specialties_languanges[0]
+        array_of_providers[i][:specialties] = team_specialties_languanges[1]
+        array_of_providers[i][:languages] = team_specialties_languanges[2]
 
       end
 
