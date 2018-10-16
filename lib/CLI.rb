@@ -2,6 +2,7 @@
 
 require_relative "Scraper.rb"
 require_relative "Providers.rb"
+require_relative "Languages.rb"
 
 class CLI
 
@@ -38,7 +39,7 @@ class CLI
   end
 
 
-  #==========================executing on the choice the user made===========================# 
+  #==========================executing on the choice the user made===========================#
   def choice_1
 
     name_array = Providers.all.map do |provider|
@@ -65,7 +66,7 @@ class CLI
       puts "#{req_provider.name}'s team: #{req_provider.team}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
-    puts "#{req_provider.name}'s languages: #{req_provider.languages}"
+    puts "#{req_provider.name}'s languages: #{Languages.languages_by_provider(req_provider)}"
     puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"
     if req_provider.title != nil
       puts "#{req_provider.name}'s title: #{req_provider.title}"
