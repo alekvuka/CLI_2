@@ -70,6 +70,7 @@ class Scraper
 
     end
 
+    #creatign instances from our array of hashes 
     array_of_providers.each do |provider|
       Providers.new(provider)
     end
