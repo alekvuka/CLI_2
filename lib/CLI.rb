@@ -9,7 +9,8 @@ class CLI
     Scraper.scrape_page(clinic_url)
   end
 
-  def start
+  def start(clinic_url = "http://callen-lorde.org/meet-our-providers/")
+
 
     puts "Choose from the following menu:"
     puts "1) List of all providers"
@@ -36,6 +37,8 @@ class CLI
 
   end
 
+
+  #==========================executing on the choice the user made===========================# 
   def choice_1
 
     name_array = Providers.all.map do |provider|
