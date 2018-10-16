@@ -37,7 +37,7 @@ class Scraper
     doc.css(".middleColumn_three").css('h3').each do |provider|
       new_hash = Hash.new
       team_specialties_languages = provider.text.split(",")
-      new_hash[:name] = team_specialties_languages[0].strip
+      new_hash[:name] = team_specialties_languages[0].gsub(/\w+[MD]/, "").strip
       new_hash[:qualification] = team_specialties_languages[1].strip
       new_hash[:title] = team_specialties_languages[1].strip
       array_of_providers << new_hash
@@ -53,9 +53,18 @@ class Scraper
         ele.gsub(/\w+[:]/, "").strip
       end
 
-      array_of_providers[i][:team] = cleaned_t_s_l_array[0]
-      array_of_providers[i][:specialties] = cleaned_t_s_l_array[1]
-      array_of_providers[i][:languages] = cleaned_t_s_l_array[2]
+      #binding.pry
+
+      if cleaned_t_s_l_array.size == 2
+        array_of_providers[i][:specialties] = cleaned_t_s_l_array[0].strip
+        array_of_providers[i][:languages] = cleaned_t_s_l_array[1]
+
+      else
+        array_of_providers[i][:team] = cleaned_t_s_l_array[0]
+        array_of_providers[i][:specialties] = cleaned_t_s_l_array[1]
+        array_of_providers[i][:languages] = cleaned_t_s_l_array[2]
+
+      end
 
       if i < 46
         i += 1
@@ -67,14 +76,6 @@ class Scraper
       Providers.new(provider)
     end
 
-
-
   end
 
 end
-
-#Scraper.scrape_page("http://callen-lorde.org/meet-our-providers/")
-
-#prv = Providers.all
-
-#binding.pry

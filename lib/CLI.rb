@@ -8,22 +8,16 @@ class CLI
 
   def initialize(clinic_url = "http://callen-lorde.org/meet-our-providers/")
     Scraper.scrape_page(clinic_url)
-    #self.start
   end
 
 
   def start
-
-    Scraper.scrape_page
 
     puts "Choose from the following menu:"
     puts "1) List of all providers"
     puts "2) Details on a specific provider"
 
     user_input = gets.strip.to_i
-
-    #binding.pry
-
 
 
     if valid?(user_input) == true
@@ -33,7 +27,7 @@ class CLI
         choice_2
       end
     end
-    self.start
+    start
 
   end
 
@@ -60,18 +54,21 @@ class CLI
     user_input = gets.strip
 
     all_providers = Providers.all
-    req_provider = all_providers.select do |provider|
+    req_provider = all_providers.detect do |provider|
       user_input == provider.name
+      binding.pry
       end
 
       binding.pry
 
-    puts "------------------------------"
-    puts req_provider.name
-    puts req_provider.team
-    puts req_provider.specialties
-    puts provider.languages
-    puts "------------------------------"
+    puts "=============================="
+    #puts "Provider name: #{req_provider.name}"
+    puts "#{req_provider.name}'s team: #{req_provider.team}"
+    puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
+    puts "#{req_provider.name}'s languages: #{req_provider.languages}"
+    puts "#{req_provider.name}'s title: #{req_provider.title}"
+    puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"
+    puts "=============================="
 
   end
 

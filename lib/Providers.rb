@@ -13,6 +13,8 @@ class Providers
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
 
+    #binding.pry
+
     @@all << self
   end
 
