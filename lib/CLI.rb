@@ -20,7 +20,7 @@ class CLI
     puts "3) List of providers by their team"
     puts "4) List of providers by their specialty"
     puts "5) List of providers by their languages"
-    puts "6) A specific provider's team?"
+    puts "6) Get a specific provider's team?"
 
     user_input = gets.strip.to_i
 
