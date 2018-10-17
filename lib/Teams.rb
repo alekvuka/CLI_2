@@ -69,22 +69,14 @@ class Teams
 
 
     @@all.each do |team|
-        team_to_return = team.providers.find do |pvdr|
-              pvdr.name == provider
-            end
-        end
+      team.providers.each do |pvdr|
+          if pvdr.name == provider
+            return team.name
+          end
+      end
+    end
 
-    team_to_return
-
-
-    #@@all.each do |team|
-    #  team.providers.each do |pvdr|
-    #    binding.pry
-    #    if pvdr.name == provider
-    #      return team.name
-    #    end
-    #  end
-    #end
+    nil
 
   end
 

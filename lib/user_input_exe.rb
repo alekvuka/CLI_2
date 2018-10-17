@@ -22,8 +22,7 @@ module UserInputExe
     return_validator(req_provider)
 
     puts "=============================="
-    if Teams.team_by_provider_name(req_provider.name) != nil
-    
+    if Teams.team_by_provider_name(req_provider.name) != nil  
       puts "#{req_provider.name}'s team: #{Teams.team_by_provider_name(req_provider.name)}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
