@@ -1,5 +1,3 @@
-#this is the class that is responsible for interacting with the user
-
 require_relative "Scraper.rb"
 require_relative "Providers.rb"
 require_relative "Languages.rb"
@@ -19,24 +17,24 @@ class CLI
 
   def start(clinic_url = "http://callen-lorde.org/meet-our-providers/")
 
-    menu_screen
+    Printer::menu_screen
 
     user_input = gets.strip.to_i
 
-    valid?(user_input)
+    UserInputExe::valid?(user_input)
 
     if user_input == 1
-      choice_1
+      UserInputExe::choice_1
     elsif user_input == 2
-      choice_2
+      UserInputExe::choice_2
     elsif user_input == 3
-      choice_3
+      UserInputExe::choice_3
     elsif user_input == 4
-      choice_4
+      UserInputExe::choice_4
     elsif user_input == 5
-      choice_5
+      UserInputExe::choice_5
     else
-      choice_6
+      UserInputExe::choice_6
     end
 
     start

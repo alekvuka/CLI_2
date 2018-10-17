@@ -48,7 +48,4 @@ module Printer
 
   end
 
-
-
-
 end

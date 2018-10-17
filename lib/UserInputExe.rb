@@ -2,8 +2,8 @@ module UserInputExe
 
   def choice_1
 
-    print_from_arr_of_o(Providers.all)
-    
+    Printer::print_from_arr_of_o(Providers.all)
+
   end
 
 
@@ -37,13 +37,13 @@ module UserInputExe
     instances_of_teams = Teams.all
 
     puts "These are all the current teams:"
-    print_from_arr_of_o(instances_of_teams)
+    Printer::print_from_arr_of_o(instances_of_teams)
 
     puts "For which team would you like a list of providers?"
     user_input = gets.strip
 
     puts "Here is the list of providers for providers that are part of #{user_input} team:"
-    print_from_arr_of_s(Teams.providers_by_team(user_input))
+    Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
   end
 
@@ -66,7 +66,7 @@ module UserInputExe
     end
 
     return_validator(return_array)
-    print_from_arr_of_s(return_array)
+    Printer::print_from_arr_of_s(return_array)
 
   end
 
@@ -75,20 +75,14 @@ module UserInputExe
     instances_of_languages = Languages.all
 
     puts "These are all the languages that the current providers speak:"
-    instances_of_languages.each do |language|
-      puts language.name
-    end
+    Printer::print_from_arr_of_o(instances_of_languages)
 
-    puts "For which one would you like a list of providers?"
+    puts "The languages that the current providers speak are listed above."
+    puts "For which language would you like a list of providers?"
     user_input = gets.strip
-
-    puts "Here is the list of providers that speak #{user_input}:"
-
     instances_of_languages.each do |language|
       if language.name == user_input
-        language.providers.each do |provider|
-          puts provider.name
-        end
+        Printer::print_from_arr_of_o(language.providers)
       end
     end
 
@@ -99,6 +93,10 @@ module UserInputExe
     user_input = gets.strip
     puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}'"
   end
+
+
+#============================= helper methods =======================
+
 
   def valid?(user_input)
     if user_input >= 1 && user_input <= 6
