@@ -4,6 +4,10 @@ require_relative "Scraper.rb"
 require_relative "Providers.rb"
 require_relative "Languages.rb"
 require_relative "Teams.rb"
+require_relative "Printer.rb"
+
+
+include Printer
 
 class CLI
 
@@ -164,9 +168,7 @@ class CLI
     if user_input >= 1 && user_input <= 6
       true
     else
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      list_right_options
       start
     end
   end
@@ -174,15 +176,11 @@ class CLI
   def return_validator(array_or_hash)
 
     if array_or_hash == nil
-      puts "======================================================================================================"
-      puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
-      puts "======================================================================================================"
+      warning_message
       start
 
     elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
-      puts "======================================================================================================"
-      puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
-      puts "======================================================================================================"
+      warning_message
       start
 
     end
