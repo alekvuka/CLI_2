@@ -15,6 +15,8 @@ class CLI
     Scraper.scrape_page(clinic_url)
   end
 
+  
+
   def start(clinic_url = "http://callen-lorde.org/meet-our-providers/")
 
     Printer::menu_screen
@@ -40,6 +42,8 @@ class CLI
     start
 
   end
+
+
 
   def valid?(user_input)
     if user_input >= 1 && user_input <= 6

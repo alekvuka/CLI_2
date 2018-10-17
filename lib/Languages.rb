@@ -8,11 +8,13 @@ class Languages
 
   attr_accessor :name, :providers
 
+
   def initialize(name)
     @name = name
     @providers = Array.new
     @@all << self
   end
+
 
 
   def self.add_by_name(language_names, provider)
@@ -47,6 +49,8 @@ class Languages
     language_instances_to_return
   end
 
+
+
   def self.languages_by_provider(provider)
 
       provider_languages = Array.new
@@ -60,6 +64,8 @@ class Languages
       end
       provider_languages.join(', ')
   end
+
+
 
   def self.all
     @@all

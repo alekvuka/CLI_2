@@ -7,6 +7,7 @@ module Printer
   end
 
 
+
   def print_from_arr_of_s(array_to_print)
 
     if array_to_print.length == 0
@@ -25,12 +26,14 @@ module Printer
   end
 
 
+
   def list_right_options
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     #start
   end
+
 
 
   def menu_screen
@@ -44,6 +47,7 @@ module Printer
   end
 
 
+
   def print_from_arr_of_o(instances_of_objects)
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     instances_of_objects.each do |object|
@@ -52,7 +56,5 @@ module Printer
     puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
   end
-
-
 
 end

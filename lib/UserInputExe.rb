@@ -8,7 +8,6 @@ module UserInputExe
 
 
 
-
   def choice_2
 
     puts "Which provider would you like to know more about?"
@@ -36,8 +35,6 @@ module UserInputExe
 
 
 
-
-
   def choice_3
 
     instances_of_teams = Teams.all
@@ -51,6 +48,7 @@ module UserInputExe
     Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
   end
+
 
 
   def choice_4
@@ -78,8 +76,6 @@ module UserInputExe
 
 
 
-
-
   def choice_5
 
     instances_of_languages = Languages.all
@@ -99,9 +95,7 @@ module UserInputExe
   end
 
 
-
-
-
+  
   def choice_6
 
     puts "The provider's name?"
