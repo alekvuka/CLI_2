@@ -151,7 +151,7 @@ class CLI
     puts "The provider's name?"
     user_input = gets.strip
 
-    puts "#{user_input}'s team is #{Teams.team_by_provider(user_input)}'"
+    puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}'"
 
 
   end

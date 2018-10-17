@@ -63,7 +63,7 @@ class Teams
       list_of_providers
   end
 
-  def self.team_by_provider(provider)
+  def self.team_by_provider_name(provider)
 
     @@all.each do |team|
       team.providers.each do |pvdr|
