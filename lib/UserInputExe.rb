@@ -19,17 +19,9 @@ module UserInputExe
 
     return_validator(req_provider)
 
-    puts "=============================="
-    if Teams.team_by_provider_name(req_provider.name) != nil
-      puts "#{req_provider.name}'s team: #{Teams.team_by_provider_name(req_provider.name)}"
-    end
-    puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
-    puts "#{req_provider.name}'s languages: #{Languages.languages_by_provider(req_provider)}"
-    puts "#{req_provider.name}'s qualifications: #{req_provider.qualifications}"
-    if req_provider.title != nil
-      puts "#{req_provider.name}'s title: #{req_provider.title}"
-    end
-    puts "=============================="
+    Printer::print_whole_profile(req_provider)
+
+
 
   end
 
@@ -69,7 +61,7 @@ module UserInputExe
       end
     end
 
-    return_validator(return_array)
+    #return_validator(return_array)
     Printer::print_from_arr_of_s(return_array)
 
   end
@@ -95,7 +87,7 @@ module UserInputExe
   end
 
 
-  
+
   def choice_6
 
     puts "The provider's name?"
@@ -108,5 +100,21 @@ module UserInputExe
     end
 
   end
+
+
+  def return_validator(array_or_hash)
+
+    if array_or_hash == nil
+      warning_message
+      choice_2
+
+
+    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
+      warning_message
+      choice_2
+
+    end
+  end
+
 
 end
