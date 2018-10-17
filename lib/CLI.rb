@@ -21,7 +21,7 @@ class CLI
 
     user_input = gets.strip.to_i
 
-    UserInputExe::valid?(user_input)
+    valid?(user_input)
 
     if user_input == 1
       UserInputExe::choice_1
@@ -39,6 +39,15 @@ class CLI
 
     start
 
+  end
+
+  def valid?(user_input)
+    if user_input >= 1 && user_input <= 6
+      true
+    else
+      list_right_options
+      start
+    end
   end
 
 end

@@ -7,6 +7,8 @@ module UserInputExe
   end
 
 
+
+
   def choice_2
 
     puts "Which provider would you like to know more about?"
@@ -32,6 +34,10 @@ module UserInputExe
 
   end
 
+
+
+
+
   def choice_3
 
     instances_of_teams = Teams.all
@@ -46,6 +52,10 @@ module UserInputExe
     Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
   end
+
+
+
+
 
   def choice_4
 
@@ -70,6 +80,10 @@ module UserInputExe
 
   end
 
+
+
+
+
   def choice_5
 
     instances_of_languages = Languages.all
@@ -88,24 +102,25 @@ module UserInputExe
 
   end
 
+
+
+
+
   def choice_6
+
     puts "The provider's name?"
     user_input = gets.strip
-    puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}'"
+
+    if Teams.team_by_provider_name(user_input) == nil
+      puts "The provider does not have a team"
+    else
+      puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}"
+    end
+
   end
 
 
 #============================= helper methods =======================
-
-
-  def valid?(user_input)
-    if user_input >= 1 && user_input <= 6
-      true
-    else
-      list_right_options
-      start
-    end
-  end
 
   def return_validator(array_or_hash)
 
@@ -119,6 +134,7 @@ module UserInputExe
 
     end
   end
+
 
 
 end

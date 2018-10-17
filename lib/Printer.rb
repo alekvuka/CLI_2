@@ -8,7 +8,6 @@ module Printer
 
 
   def print_from_arr_of_s(array_to_print)
-
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     i = 0
     while i < array_to_print.size
@@ -17,7 +16,6 @@ module Printer
     end
     puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-
   end
 
 
@@ -25,7 +23,9 @@ module Printer
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    #start
   end
+
 
   def menu_screen
     puts "Choose from the following menu:"
@@ -37,15 +37,16 @@ module Printer
     puts "6) Get a specific provider's team?"
   end
 
-  def print_from_arr_of_o(instances_of_objects)
 
+  def print_from_arr_of_o(instances_of_objects)
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     instances_of_objects.each do |object|
       puts object.name
     end
     puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-
   end
+
+
 
 end
