@@ -5,8 +5,8 @@ require_relative "Providers.rb"
 class Languages
 
   @@all = Array.new
-
   attr_accessor :name, :providers
+
 
 
   def initialize(name)
@@ -14,6 +14,8 @@ class Languages
     @providers = Array.new
     @@all << self
   end
+
+
 
   def self.add_by_name(language_names, provider)
 

@@ -19,7 +19,6 @@ class Teams
 
   def self.add_by_name(team_name, provider)
 
-
     if team_name == nil
       nil
     else
@@ -68,13 +67,15 @@ class Teams
 
   def self.team_by_provider_name(provider)
 
-    @@all.each do |team|
-      team.providers.each do |pvdr|
-          if pvdr.name == provider
-            return team.name
-          end
+      @@all.each do |team|
+        team.providers.each do |pvdr|
+            if pvdr.name == provider
+              return team.name
+            end
+        end
       end
-    end
+
+      nil
 
   end
 

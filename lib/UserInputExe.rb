@@ -1,15 +1,13 @@
 module UserInputExe
 
   def choice_1
-
     Printer::print_from_arr_of_o(Providers.all)
-
   end
 
 
 
   def choice_2
-
+    
     user_input = Printer::get_provider_name
 
     req_provider = Providers.all.detect do |provider|

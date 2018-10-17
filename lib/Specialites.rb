@@ -7,8 +7,8 @@ require_relative "Providers.rb"
 class Specialites
 
   @@all = Array.new
-
   attr_accessor :name, :providers
+
 
 
   def initialize(name)

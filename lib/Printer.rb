@@ -2,6 +2,8 @@ require_relative "Specialites.rb"
 
 module Printer
 
+
+
   def warning_message
     puts "======================================================================================================"
     puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
@@ -41,7 +43,6 @@ module Printer
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    #start
   end
 
 
@@ -68,6 +69,7 @@ module Printer
   end
 
 
+
   def print_whole_profile(provider_instance)
 
     puts "=============================="
@@ -85,15 +87,21 @@ module Printer
 
   end
 
+
+
   def get_provider_name
     puts "Which provider?"
     user_input = gets.strip
   end
 
+
+
   def get_choice_from_above
     puts "Please choose from the list above to get the relevant providers:"
     user_input = gets.strip
   end
+
+
 
   def print_this(for_printing)
     puts "*****************************************************"
