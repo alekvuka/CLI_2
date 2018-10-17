@@ -1,5 +1,7 @@
 module UserInputExe
 
+
+
   def choice_1
     Printer::print_from_arr_of_o(Providers.all)
   end
@@ -7,9 +9,8 @@ module UserInputExe
 
 
   def choice_2
-    
-    user_input = Printer::get_provider_name
 
+    user_input = Printer::get_provider_name
     req_provider = Providers.all.detect do |provider|
                         user_input == provider.name
                       end
@@ -28,7 +29,6 @@ module UserInputExe
   def choice_3
 
     instances_of_teams = Teams.all
-
     Printer::print_from_arr_of_o(instances_of_teams)
 
     user_input = Printer::get_choice_from_above
@@ -41,11 +41,9 @@ module UserInputExe
   def choice_4
 
     instances_of_specialties = Specialites.all
-
     Printer::print_from_arr_of_o(instances_of_specialties)
 
     user_input = Printer::get_choice_from_above
-
     instances_of_specialties.each do |specialty|
       if specialty.name == user_input
         Printer::print_from_arr_of_o(specialty.providers)
@@ -59,11 +57,9 @@ module UserInputExe
   def choice_5
 
     instances_of_languages = Languages.all
-
     Printer::print_from_arr_of_o(instances_of_languages)
 
     user_input = Printer::get_choice_from_above
-
     instances_of_languages.each do |language|
       if language.name == user_input
         Printer::print_from_arr_of_o(language.providers)
