@@ -5,14 +5,16 @@ require_relative "Providers.rb"
 class Teams
 
   @@all = Array.new
-
   attr_accessor :name, :providers
+
+
 
   def initialize(name)
     @name = name
     @providers = Array.new
     @@all << self
   end
+
 
 
   def self.add_by_name(team_name, provider)
@@ -41,7 +43,6 @@ class Teams
       end
 
     end
-
   end
 
 
@@ -59,12 +60,13 @@ class Teams
       end
 
       list_of_providers
+
   end
 
+
+
+
   def self.team_by_provider_name(provider)
-
-    team_to_return = ""
-
 
     @@all.each do |team|
       team.providers.each do |pvdr|
@@ -74,9 +76,9 @@ class Teams
       end
     end
 
-    nil
-
   end
+
+
 
   def self.all
     @@all

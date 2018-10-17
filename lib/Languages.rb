@@ -15,8 +15,6 @@ class Languages
     @@all << self
   end
 
-
-
   def self.add_by_name(language_names, provider)
 
     ary = language_names.split(",")
