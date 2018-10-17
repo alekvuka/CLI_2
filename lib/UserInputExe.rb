@@ -41,27 +41,8 @@ module UserInputExe
 
 
   def choice_4
-=begin
-    puts "From what specialty: Adolescent Health, Family Practice, HIV, Adult Primary Care or Internal Medicine"
-    user_input = gets.strip
 
-    return_array = Array.new
-
-    Providers.all.each do |provider|
-      temp_arr = provider.specialties.split(",")
-      i = 0
-      while i < temp_arr.size
-        if temp_arr[i].strip == user_input
-          return_array << provider.name
-        end
-        i+=1
-      end
-    end
-
-    Printer::print_from_arr_of_s(return_array)
-=end
-
-    instances_of_specialties = Specialties.all
+    instances_of_specialties = Specialites.all
 
     Printer::print_from_arr_of_o(instances_of_specialties)
 
