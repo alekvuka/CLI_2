@@ -1,10 +1,8 @@
 # CLI2
 
-The CLI_2 gem is a template for scraping provider information from a health clinic and organizing that
-information into obects so that a user can easely interrogate the collected information. In this particular
-example, the gem scrapes a list of providers from a health clicic and takes into account each provider's
-team, name, specialty, languages and qualifications. The user interacts with the program through a CLI where they
-are able to organze providers based on team/soecialty/langues/etc.
+CLI_2 scrapes provider's name, specialties, teams, languages and other attributes from a health clinic's website directory. CLI_2 organizes these attributes so that they can be easily interrogated by the user. The user can interact with the program though a CLI menu which displays the options on what information the user can gather from the collected data.
+
+CLI_2 is designed to be easily modified so that you can use it as a template when collecting and organizing information from your specific health clinic's website. 
 
 ## Installation
 
