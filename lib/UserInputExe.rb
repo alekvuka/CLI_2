@@ -89,7 +89,7 @@ module UserInputExe
     if Teams.team_by_provider_name(user_input) == nil
       Printer::warning_message_team
     else
-      puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}"
+      Printer::print_this(Teams.team_by_provider_name(user_input))
     end
 
   end

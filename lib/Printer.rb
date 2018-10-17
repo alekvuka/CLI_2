@@ -93,4 +93,10 @@ module Printer
     user_input = gets.strip
   end
 
+  def print_this(for_printing)
+    puts "*****************************************************"
+    puts "                #{for_printing}                      "
+    puts "*****************************************************"
+  end
+
 end
