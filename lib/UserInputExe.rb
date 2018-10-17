@@ -56,7 +56,6 @@ module UserInputExe
       end
     end
 
-    #return_validator(return_array)
     Printer::print_from_arr_of_s(return_array)
 
   end
@@ -93,21 +92,5 @@ module UserInputExe
     end
 
   end
-
-
-  def return_validator(array_or_hash)
-
-    if array_or_hash == nil
-      warning_message
-      choice_2
-
-
-    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
-      warning_message
-      choice_2
-
-    end
-  end
-
 
 end
