@@ -68,9 +68,8 @@ module UserInputExe
 
     Printer::print_from_arr_of_o(instances_of_languages)
 
-    puts "The languages that the current providers speak are listed above."
-    puts "For which language would you like a list of providers?"
-    user_input = gets.strip
+    user_input = Printer::get_choice_from_above
+
     instances_of_languages.each do |language|
       if language.name == user_input
         Printer::print_from_arr_of_o(language.providers)
