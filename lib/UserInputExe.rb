@@ -48,13 +48,9 @@ module UserInputExe
     puts "For which team would you like a list of providers?"
     user_input = gets.strip
 
-    puts "Here is the list of providers for providers that are part of #{user_input} team:"
     Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
   end
-
-
-
 
 
   def choice_4
@@ -118,23 +114,5 @@ module UserInputExe
     end
 
   end
-
-
-#============================= helper methods =======================
-
-  def return_validator(array_or_hash)
-
-    if array_or_hash == nil
-      warning_message
-      start
-
-    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
-      warning_message
-      start
-
-    end
-  end
-
-
 
 end

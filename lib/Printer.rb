@@ -8,14 +8,20 @@ module Printer
 
 
   def print_from_arr_of_s(array_to_print)
-    puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
-    i = 0
-    while i < array_to_print.size
-      puts array_to_print[i]
-      i+=1
+
+    if array_to_print.length == 0
+      warning_message
+    else
+      puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
+      i = 0
+      while i < array_to_print.size
+        puts array_to_print[i]
+        i+=1
+      end
+      puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
+      puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     end
-    puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
-    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+
   end
 
 
