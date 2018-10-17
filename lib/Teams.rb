@@ -65,8 +65,20 @@ class Teams
 
   def self.team_by_provider_name(provider)
 
+
+    hello = @@all.collect do |team|
+        team.providers.each do |pvdr|
+          vdr.name == provider
+        end
+      end
+
+      binding.pry
+
+
+
     @@all.each do |team|
       team.providers.each do |pvdr|
+        binding.pry
         if pvdr.name == provider
           return team.name
         end

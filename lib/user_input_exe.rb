@@ -1,50 +1,5 @@
-#this is the class that is responsible for interacting with the user
+module UserInputExe
 
-require_relative "Scraper.rb"
-require_relative "Providers.rb"
-require_relative "Languages.rb"
-require_relative "Teams.rb"
-require_relative "Printer.rb"
-require_relative "user_input_exe.rb"
-
-
-include Printer
-include UserInputExe
-
-class CLI
-
-  def initialize(clinic_url = "http://callen-lorde.org/meet-our-providers/")
-    Scraper.scrape_page(clinic_url)
-  end
-
-  def start(clinic_url = "http://callen-lorde.org/meet-our-providers/")
-
-    menu_screen
-
-    user_input = gets.strip.to_i
-
-    valid?(user_input)
-
-    if user_input == 1
-      choice_1
-    elsif user_input == 2
-      choice_2
-    elsif user_input == 3
-      choice_3
-    elsif user_input == 4
-      choice_4
-    elsif user_input == 5
-      choice_5
-    else
-      choice_6
-    end
-
-    start
-
-  end
-
-=begin
-  #==========================executing on the choice the user made===========================#
   def choice_1
 
     name_array = Providers.all.map do |provider|
@@ -68,6 +23,7 @@ class CLI
 
     puts "=============================="
     if Teams.team_by_provider_name(req_provider.name) != nil
+    
       puts "#{req_provider.name}'s team: #{Teams.team_by_provider_name(req_provider.name)}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
@@ -151,28 +107,5 @@ class CLI
     puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}'"
   end
 
-#=================== Helper Methods ====================
-=end
-  def valid?(user_input)
-    if user_input >= 1 && user_input <= 6
-      true
-    else
-      list_right_options
-      start
-    end
-  end
-
-  def return_validator(array_or_hash)
-
-    if array_or_hash == nil
-      warning_message
-      start
-
-    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
-      warning_message
-      start
-
-    end
-  end
 
 end

@@ -6,7 +6,8 @@ module Printer
     puts "======================================================================================================"
   end
 
-  def print_lists(array_to_print)
+
+  def print_from_arr_of_s(array_to_print)
 
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     i = 0
@@ -14,15 +15,31 @@ module Printer
       puts array_to_print[i]
       i+=1
     end
-    puts "^^^^^^               THE PROVIDERS ARE LISTED ABOVE                         ^^^^^^^"
+    puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
   end
+
 
   def list_right_options
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
+
+  def menu_screen
+    puts "Choose from the following menu:"
+    puts "1) List of all providers"
+    puts "2) Details on a specific provider"
+    puts "3) List of providers by their team"
+    puts "4) List of providers by their specialty"
+    puts "5) List of providers by their languages"
+    puts "6) Get a specific provider's team?"
+
+    
+  end
+
+
+
 
 end
