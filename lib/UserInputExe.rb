@@ -41,7 +41,7 @@ module UserInputExe
 
 
   def choice_4
-
+=begin
     puts "From what specialty: Adolescent Health, Family Practice, HIV, Adult Primary Care or Internal Medicine"
     user_input = gets.strip
 
@@ -59,6 +59,19 @@ module UserInputExe
     end
 
     Printer::print_from_arr_of_s(return_array)
+=end
+
+    instances_of_specialties = Specialties.all
+
+    Printer::print_from_arr_of_o(instances_of_specialties)
+
+    user_input = Printer::get_choice_from_above
+
+    instances_of_specialties.each do |specialty|
+      if specialty.name == user_input
+        Printer::print_from_arr_of_o(specialty.providers)
+      end
+    end
 
   end
 
