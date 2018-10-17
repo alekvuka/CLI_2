@@ -21,19 +21,17 @@ class Teams
     if team_name == nil
       nil
     else
-
       team_name = team_name.strip
+
       if team_name.length == 7 && team_name.include?("Purple")
         team_name = team_name.delete(team_name[0])
       end
-
-
 
       our_team = @@all.select do |team|
                         team.name == team_name
                       end
 
-      if our_team == false || our_team == nil || our_team.length == 0
+      if our_team.length == 0
         new_team = Teams.new(team_name)
         new_team.providers << provider
         new_team

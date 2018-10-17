@@ -35,7 +35,7 @@ class Languages
                       end
 
 
-      if our_language == false || our_language == nil || our_language.length == 0
+      if our_language.length == 0
         new_language = Languages.new(language_name)
         new_language.providers << provider
         language_instances_to_return << our_language
