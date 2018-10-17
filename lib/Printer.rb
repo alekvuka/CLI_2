@@ -8,6 +8,14 @@ module Printer
 
 
 
+  def warning_message_team
+    puts "======================================================================================================"
+    puts "!!!!!!!!     You've chosen a doctor that either does not exist or is not part os any team     !!!!!!!!"
+    puts "======================================================================================================"
+  end
+
+
+
   def print_from_arr_of_s(array_to_print)
 
     if array_to_print.length == 0

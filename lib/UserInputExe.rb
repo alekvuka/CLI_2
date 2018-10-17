@@ -87,7 +87,7 @@ module UserInputExe
     user_input = Printer::get_provider_name
 
     if Teams.team_by_provider_name(user_input) == nil
-      puts "The provider does not have a team"
+      Printer::warning_message_team
     else
       puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}"
     end
