@@ -10,18 +10,18 @@ module UserInputExe
 
   def choice_2
 
-    puts "Which provider would you like to know more about?"
-    user_input = gets.strip
+    user_input = Printer::get_provider_name
 
     req_provider = Providers.all.detect do |provider|
-      user_input == provider.name
-      end
+                        user_input == provider.name
+                      end
 
-    return_validator(req_provider)
-
-    Printer::print_whole_profile(req_provider)
-
-
+    if req_provider == nil
+      Printer::warning_message
+      choice_2
+    else
+      Printer::print_whole_profile(req_provider)
+    end
 
   end
 
@@ -30,13 +30,8 @@ module UserInputExe
   def choice_3
 
     instances_of_teams = Teams.all
-
-    puts "These are all the current teams:"
     Printer::print_from_arr_of_o(instances_of_teams)
-
-    puts "For which team would you like a list of providers?"
-    user_input = gets.strip
-
+    user_input = Printer::get_choice_from_above
     Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
   end
@@ -72,7 +67,6 @@ module UserInputExe
 
     instances_of_languages = Languages.all
 
-    puts "These are all the languages that the current providers speak:"
     Printer::print_from_arr_of_o(instances_of_languages)
 
     puts "The languages that the current providers speak are listed above."
@@ -90,8 +84,7 @@ module UserInputExe
 
   def choice_6
 
-    puts "The provider's name?"
-    user_input = gets.strip
+    user_input = Printer::get_provider_name
 
     if Teams.team_by_provider_name(user_input) == nil
       puts "The provider does not have a team"

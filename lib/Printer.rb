@@ -75,4 +75,14 @@ module Printer
 
   end
 
+  def get_provider_name
+    puts "Which provider?"
+    user_input = gets.strip
+  end
+
+  def get_choice_from_above
+    puts "Please choose from the list above to get the relevant providers:"
+    user_input = gets.strip
+  end
+
 end
