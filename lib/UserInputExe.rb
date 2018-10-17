@@ -30,7 +30,9 @@ module UserInputExe
   def choice_3
 
     instances_of_teams = Teams.all
+
     Printer::print_from_arr_of_o(instances_of_teams)
+
     user_input = Printer::get_choice_from_above
     Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
 
