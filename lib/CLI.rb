@@ -66,6 +66,8 @@ class CLI
       user_input == provider.name
       end
 
+    binding.pry
+
     return_validator(req_provider)
 
     puts "=============================="
