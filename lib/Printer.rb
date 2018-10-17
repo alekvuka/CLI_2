@@ -10,8 +10,8 @@ module Printer
 
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     i = 0
-    while i < arry_to_print.size
-      puts arry_to_print[i]
+    while i < array_to_print.size
+      puts array_to_print[i]
       i+=1
     end
     puts "^^^^^^               THE PROVIDERS ARE LISTED ABOVE                         ^^^^^^^"

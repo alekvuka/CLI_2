@@ -56,7 +56,7 @@ class CLI
     name_array = Providers.all.map do |provider|
               provider.name
             end
-    printer(name_array)
+    print_lists(name_array)
 
   end
 
@@ -69,8 +69,6 @@ class CLI
     req_provider = Providers.all.detect do |provider|
       user_input == provider.name
       end
-
-    binding.pry
 
     return_validator(req_provider)
 
@@ -125,7 +123,7 @@ class CLI
     end
 
     return_validator(return_array)
-    printer(return_array.uniq)
+    print_lists(return_array.uniq)
 
   end
 
@@ -184,19 +182,6 @@ class CLI
       start
 
     end
-  end
-
-  def printer(arry_to_print)
-
-    puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
-    i = 0
-    while i < arry_to_print.size
-      puts arry_to_print[i]
-      i+=1
-    end
-    puts "^^^^^^               THE PROVIDERS ARE LISTED ABOVE                         ^^^^^^^"
-    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-
   end
 
 end
