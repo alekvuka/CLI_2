@@ -37,9 +37,16 @@ module Printer
     puts "6) Get a specific provider's team?"
   end
 
-  def print_from_arr_of_o(array_to_print)
+  def print_from_arr_of_o(instances_of_objects)
 
-  end 
+    puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
+    instances_of_objects.each do |object|
+      puts object.name
+    end
+    puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+
+  end
 
 
 

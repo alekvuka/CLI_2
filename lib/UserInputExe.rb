@@ -2,11 +2,8 @@ module UserInputExe
 
   def choice_1
 
-    name_array = Providers.all.map do |provider|
-              provider.name
-            end
-    print_from_arr_of_s(name_array)
-
+    print_from_arr_of_o(Providers.all)
+    
   end
 
 
@@ -40,10 +37,7 @@ module UserInputExe
     instances_of_teams = Teams.all
 
     puts "These are all the current teams:"
-    instances_of_teams.each do |team|
-      #binding.pry
-      puts team.name
-    end
+    print_from_arr_of_o(instances_of_teams)
 
     puts "For which team would you like a list of providers?"
     user_input = gets.strip
