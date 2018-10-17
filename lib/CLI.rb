@@ -69,8 +69,8 @@ class CLI
     return_validator(req_provider)
 
     puts "=============================="
-    if Teams.team_by_provider(req_provider) != nil
-      puts "#{req_provider.name}'s team: #{Teams.team_by_provider(req_provider)}"
+    if Teams.team_by_provider_name(req_provider.name) != nil
+      puts "#{req_provider.name}'s team: #{Teams.team_by_provider_name(req_provider.name)}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
     puts "#{req_provider.name}'s languages: #{Languages.languages_by_provider(req_provider)}"
