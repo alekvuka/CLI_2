@@ -22,7 +22,7 @@ module UserInputExe
     return_validator(req_provider)
 
     puts "=============================="
-    if Teams.team_by_provider_name(req_provider.name) != nil  
+    if Teams.team_by_provider_name(req_provider.name) != nil
       puts "#{req_provider.name}'s team: #{Teams.team_by_provider_name(req_provider.name)}"
     end
     puts "#{req_provider.name}'s specialties: #{req_provider.specialties}"
@@ -104,6 +104,28 @@ module UserInputExe
     puts "The provider's name?"
     user_input = gets.strip
     puts "#{user_input}'s team is #{Teams.team_by_provider_name(user_input)}'"
+  end
+
+  def valid?(user_input)
+    if user_input >= 1 && user_input <= 6
+      true
+    else
+      list_right_options
+      start
+    end
+  end
+
+  def return_validator(array_or_hash)
+
+    if array_or_hash == nil
+      warning_message
+      start
+
+    elsif array_or_hash.instance_of?(Array) && array_or_hash.any? == false
+      warning_message
+      start
+
+    end
   end
 
 

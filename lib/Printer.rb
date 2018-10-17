@@ -35,9 +35,11 @@ module Printer
     puts "4) List of providers by their specialty"
     puts "5) List of providers by their languages"
     puts "6) Get a specific provider's team?"
-
-    
   end
+
+  def print_from_arr_of_o(array_to_print)
+
+  end 
 
 
 
