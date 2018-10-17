@@ -20,6 +20,7 @@ class CLI
     puts "3) List of providers by their team"
     puts "4) List of providers by their specialty"
     puts "5) List of providers by their languages"
+    puts "6) A specific provider's team?"
 
     user_input = gets.strip.to_i
 
@@ -34,8 +35,10 @@ class CLI
       choice_3
     elsif user_input == 4
       choice_4
-    else
+    elsif user_input == 5
       choice_5
+    else
+      choice_6
     end
 
     start
@@ -143,10 +146,20 @@ class CLI
 
   end
 
+  def choice_6
+
+    puts "The provider's name?"
+    user_input = gets.strip
+
+    puts "#{user_input}'s team is #{Teams.team_by_provider(user_input)}'"
+
+
+  end
+
 #=================== Helper Methods ====================
 
   def valid?(user_input)
-    if user_input == 1 || user_input == 2 || user_input == 3 || user_input == 4 || user_input == 5
+    if user_input >= 1 && user_input <= 6
       true
     else
       puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"

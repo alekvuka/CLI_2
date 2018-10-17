@@ -67,8 +67,7 @@ class Teams
 
     @@all.each do |team|
       team.providers.each do |pvdr|
-
-        if pvdr == provider
+        if pvdr.name == provider
           return team.name
         end
       end
