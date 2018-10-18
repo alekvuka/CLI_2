@@ -76,7 +76,7 @@ module Printer
     if Teams.team_by_provider_name(provider_instance.name) != nil
       puts "#{provider_instance.name}'s team: #{Teams.team_by_provider_name(provider_instance.name)}"
     end
-    puts "#{provider_instance.name}'s pecialties: #{Specialites.specialties_by_provider(provider_instance)}"
+    puts "#{provider_instance.name}'s specialties: #{Specialites.specialties_by_provider(provider_instance)}"
     #puts "#{provider_instance.name}'s specialties: #{provider_instance.specialties}"
     puts "#{provider_instance.name}'s languages: #{Languages.languages_by_provider(provider_instance)}"
     puts "#{provider_instance.name}'s qualifications: #{provider_instance.qualifications}"
