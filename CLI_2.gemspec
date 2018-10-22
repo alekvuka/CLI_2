@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'ALEKSANDAR VUKASINOVIC'"]
   spec.email         = ["'alekvuka@gmail.com'"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{ The framework of the gem is in CLI, Scraper and Provider classes with a Printer module. The CLI class initiates the user interaction and is responsible for interpreting user input and initiating the Scraper class. The Scraper class is responsible fir scraping the given website and instantiating Provider objects. The provider class is responsible for Provider objects each instance of has instance variables that account for the Provider attributes, such as name, qualifications, etc. The Printer module is responsible for outputting messages to the user, it contains methods such as “Main Menu” and “Warning Message.”}
+  spec.summary       = %q{The framework of the gem is in CLI, Scraper and Provider classes with a Printer module. The CLI class initiates the user interaction and is responsible for interpreting user input and initiating the Scraper class. The Scraper class is responsible fir scraping the given website and instantiating Provider objects. The provider class is responsible for Provider objects each instance of has instance variables that account for the Provider attributes, such as name, qualifications, etc. The Printer module is responsible for outputting messages to the user, it contains methods such as “Main Menu” and “Warning Message.}
+  spec.description   = %q{Scraping a health clinic website and organizing its providers/doctors}
   spec.homepage      = "https://github.com/alekvuka/CLI_2"
   spec.license       = "MIT"
 
