@@ -1,10 +1,10 @@
-require_relative "Specialites.rb"
-
-module Printer
 
 
+class Printer
 
-  def warning_message
+
+
+  def self.warning_message
     puts "======================================================================================================"
     puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
     puts "======================================================================================================"
@@ -12,7 +12,7 @@ module Printer
 
 
 
-  def warning_message_team
+  def self.warning_message_team
     puts "======================================================================================================"
     puts "!!!!!!!!     You've chosen a doctor that either does not exist or is not part os any team     !!!!!!!!"
     puts "======================================================================================================"
@@ -20,7 +20,7 @@ module Printer
 
 
 
-  def print_from_arr_of_s(array_to_print)
+  def self.print_from_arr_of_s(array_to_print)
 
     if array_to_print.length == 0
       warning_message
@@ -39,7 +39,7 @@ module Printer
 
 
 
-  def list_right_options
+  def self.list_right_options
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -47,7 +47,7 @@ module Printer
 
 
 
-  def menu_screen
+  def self.menu_screen
     puts "Choose from the following menu:"
     puts "1) List of all providers"
     puts "2) Details on a specific provider"
@@ -59,7 +59,7 @@ module Printer
 
 
 
-  def print_from_arr_of_o(instances_of_objects)
+  def self.print_from_arr_of_o(instances_of_objects)
     puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
     instances_of_objects.each do |object|
       puts object.name
@@ -70,7 +70,7 @@ module Printer
 
 
 
-  def print_whole_profile(provider_instance)
+  def self.print_whole_profile(provider_instance)
 
     puts "=============================="
     if Teams.team_by_provider_name(provider_instance.name) != nil
@@ -89,21 +89,16 @@ module Printer
 
 
 
-  def get_provider_name
-    puts "Which provider?"
-    user_input = gets.strip
-  end
 
 
-
-  def get_choice_from_above
+  def self.get_choice_from_above
     puts "Please choose from the list above to get the relevant providers:"
     user_input = gets.strip
   end
 
 
 
-  def print_this(for_printing)
+  def self.print_this(for_printing)
     puts "*****************************************************"
     puts "                #{for_printing}                      "
     puts "*****************************************************"

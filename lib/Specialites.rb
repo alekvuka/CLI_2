@@ -1,7 +1,3 @@
-require 'pry'
-
-require_relative "Providers.rb"
-
 
 
 class Specialites
@@ -21,6 +17,7 @@ class Specialites
 
   def self.add_by_name(specialties, provider)
 
+  
     ary = specialties.split(",")
     speciality_instances_to_return = Array.new
 

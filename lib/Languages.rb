@@ -1,6 +1,4 @@
-require 'pry'
 
-require_relative "Providers.rb"
 
 class Languages
 
@@ -47,7 +45,7 @@ class Languages
 
     end
     language_instances_to_return
-    
+
   end
 
 

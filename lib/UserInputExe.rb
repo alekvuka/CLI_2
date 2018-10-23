@@ -1,83 +1,86 @@
-module UserInputExe
+class UserInputExe
 
 
 
-  def choice_1
-    Printer::print_from_arr_of_o(Providers.all)
+  def self.choice_1
+    Printer.print_from_arr_of_o(Providers.all)
   end
 
 
 
-  def choice_2
+  def self.choice_2
 
-    user_input = Printer::get_provider_name
+    puts "Which team?"
+    user_input = gets.strip
+
     req_provider = Providers.all.detect do |provider|
                         user_input == provider.name
                       end
 
     if req_provider == nil
-      Printer::warning_message
+      Printer.warning_message
       choice_2
     else
-      Printer::print_whole_profile(req_provider)
+      Printer.print_whole_profile(req_provider)
     end
 
   end
 
 
 
-  def choice_3
+  def self.choice_3
 
-    instances_of_teams = Teams.all
-    Printer::print_from_arr_of_o(instances_of_teams)
+    array_of_teams = Providers.all.map {|provider| provider.team}.uniq
+    Printer.print_from_arr_of_s(array_of_teams)
 
-    user_input = Printer::get_choice_from_above
-    Printer::print_from_arr_of_s(Teams.providers_by_team(user_input))
+    puts "Which team?"
+    user_input = gets.strip
 
-  end
-
-
-
-  def choice_4
-
-    instances_of_specialties = Specialites.all
-    Printer::print_from_arr_of_o(instances_of_specialties)
-
-    user_input = Printer::get_choice_from_above
-    instances_of_specialties.each do |specialty|
-      if specialty.name == user_input
-        Printer::print_from_arr_of_o(specialty.providers)
-      end
-    end
+    Printer.print_from_arr_of_o(Providers.find_by_team(user_input))
 
   end
 
 
 
-  def choice_5
+  def self.choice_4
 
-    instances_of_languages = Languages.all
-    Printer::print_from_arr_of_o(instances_of_languages)
+    array_of_specialties = Providers.all.map {|provider| provider.specialty}.uniq
+    Printer.print_from_arr_of_s(array_of_specialties)
 
-    user_input = Printer::get_choice_from_above
-    instances_of_languages.each do |language|
-      if language.name == user_input
-        Printer::print_from_arr_of_o(language.providers)
-      end
-    end
+    puts "Which specialty?"
+    user_input = gets.strip
+
+    Printer.print_from_arr_of_o(Providers.find_by_specialty(user_input))
 
   end
 
 
 
-  def choice_6
+  def self.choice_5
+    array_of_languages = Providers.all.map {|provider| provider.language}.uniq
+    Printer.print_from_arr_of_s(array_of_languages)
 
-    user_input = Printer::get_provider_name
+    puts "Which language?"
+    user_input = gets.strip
 
-    if Teams.team_by_provider_name(user_input) == nil
-      Printer::warning_message_team
+    Printer.print_from_arr_of_o(Providers.find_by_language(user_input))
+
+  end
+
+
+
+  def self.choice_6
+
+
+    puts "Which provider?"
+    user_input = gets.strip
+
+    provider = Provider.find_by_name(user_input)
+
+    if  provider.team == nil
+      Printer.warning_message_team
     else
-      Printer::print_this(Teams.team_by_provider_name(user_input))
+      Printer.print_this(provider.team)
     end
 
   end

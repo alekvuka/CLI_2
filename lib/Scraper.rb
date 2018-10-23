@@ -1,8 +1,4 @@
-require 'pry'
-require 'nokogiri'
-require 'open-uri'
 
-require_relative "Providers.rb"
 
 
 class Scraper
@@ -28,7 +24,7 @@ class Scraper
     #languages = cleaned_t_s_l_array[2]
 
 
-    attr_hash = Hash.new
+    #attr_hash = Hash.new
     array_of_providers = Array.new
 
 
@@ -79,5 +75,5 @@ class Scraper
     end
 
   end
-  
+
 end
