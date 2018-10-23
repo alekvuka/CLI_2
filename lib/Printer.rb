@@ -73,12 +73,12 @@ class Printer
   def self.print_whole_profile(provider_instance)
 
     puts "=============================="
-    if Teams.team_by_provider_name(provider_instance.name) != nil
-      puts "#{provider_instance.name}'s team: #{Teams.team_by_provider_name(provider_instance.name)}"
+    if provider_instance.team != nil
+      puts "#{provider_instance.name}'s team: #{provider_instance.team}"
     end
-    puts "#{provider_instance.name}'s specialties: #{Specialites.specialties_by_provider(provider_instance)}"
+    puts "#{provider_instance.name}'s specialties: #{provider_instance.specialites}"
     #puts "#{provider_instance.name}'s specialties: #{provider_instance.specialties}"
-    puts "#{provider_instance.name}'s languages: #{Languages.languages_by_provider(provider_instance)}"
+    puts "#{provider_instance.name}'s languages: #{provider_instance.languages}"
     puts "#{provider_instance.name}'s qualifications: #{provider_instance.qualifications}"
     if provider_instance.title != nil
       puts "#{provider_instance.name}'s title: #{provider_instance.title}"

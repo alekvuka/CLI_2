@@ -20,19 +20,19 @@ class Providers
   end
 
   def self.find_by_team(team)
-    @all.select{ |provider| provider.team.name == team}
+    @@all.select{ |provider| provider.team == team}
   end
 
   def self.find_by_name(name)
-    @all.find{ |provider| provider.name == name}
+    @@all.find{ |provider| provider.name == name}
   end
 
   def self.find_by_language(language)
-    @all.select{ |provider| provider.language.include?(language)}
+    @@all.select{ |provider| provider.language.include?(language)}
   end
 
   def self.find_by_specialty(specialty)
-    @all.select{ |provider| provider.specialty.include?(specialty)}
+    @@all.select{ |provider| provider.specialty.include?(specialty)}
   end
 
   def self.all

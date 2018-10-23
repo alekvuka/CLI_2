@@ -10,7 +10,7 @@ class UserInputExe
 
   def self.choice_2
 
-    puts "Which team?"
+    puts "Which provider?"
     user_input = gets.strip
 
     req_provider = Providers.all.detect do |provider|
@@ -30,9 +30,7 @@ class UserInputExe
 
   def self.choice_3
 
-    array_of_teams = Providers.all.map {|provider| provider.team}.uniq
-    #binding.pry
-
+    array_of_teams = Providers.all.map {|provider| provider.team}.uniq.compact
 
     Printer.print_from_arr_of_s(array_of_teams)
 
