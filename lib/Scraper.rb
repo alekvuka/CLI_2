@@ -56,7 +56,11 @@ class Scraper
         array_of_providers[i][:languages] = team_specialties_languanges[1]
 
       else
-        array_of_providers[i][:team] = team_specialties_languanges[0]
+        if team_specialties_languanges[0].strip.length == 7 && team_specialties_languanges[0].include?("Purple")
+          team_specialties_languanges[0] = team_specialties_languanges[0].delete(team_specialties_languanges[0][0])
+        end
+        #binding.pry
+        array_of_providers[i][:team] = team_specialties_languanges[0].strip
         array_of_providers[i][:specialties] = team_specialties_languanges[1]
         array_of_providers[i][:languages] = team_specialties_languanges[2]
 

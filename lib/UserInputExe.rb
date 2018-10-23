@@ -31,6 +31,9 @@ class UserInputExe
   def self.choice_3
 
     array_of_teams = Providers.all.map {|provider| provider.team}.uniq
+    #binding.pry
+
+
     Printer.print_from_arr_of_s(array_of_teams)
 
     puts "Which team?"

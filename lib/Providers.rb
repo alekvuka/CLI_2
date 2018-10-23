@@ -10,8 +10,8 @@ class Providers
     @name = attr_hash[:name]
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
-
     @specialites = attr_hash[:specialties]
+
     @team = attr_hash[:team]
     @languages = attr_hash[:languages]
 
