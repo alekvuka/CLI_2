@@ -76,14 +76,17 @@ class UserInputExe
     puts "Which provider?"
     user_input = gets.strip
 
-    provider = Provider.find_by_name(user_input)
+    provider = Providers.find_by_name(user_input)
 
-    if  provider.team == nil
+    if  provider == nil
       Printer.warning_message_team
     else
       Printer.print_this(provider.team)
     end
 
   end
+
+  def self.choice_7
+  end 
 
 end

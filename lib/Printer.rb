@@ -41,7 +41,7 @@ class Printer
 
   def self.list_right_options
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts "!!!!!!!!!!!!!  Please enter either 1, 2, 3 or 4  !!!!!!!!!!!!"
+    puts "!!!!!!  Please enter either 1, 2, 3, 4, 5, 6 or 7  !!!!!!!!!!"
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
 
@@ -55,6 +55,7 @@ class Printer
     puts "4) List of providers by their specialty"
     puts "5) List of providers by their languages"
     puts "6) Get a specific provider's team?"
+    puts "7) Exit the program"
   end
 
 
@@ -77,7 +78,6 @@ class Printer
       puts "#{provider_instance.name}'s team: #{provider_instance.team}"
     end
     puts "#{provider_instance.name}'s specialties: #{provider_instance.specialites}"
-    #puts "#{provider_instance.name}'s specialties: #{provider_instance.specialties}"
     puts "#{provider_instance.name}'s languages: #{provider_instance.languages}"
     puts "#{provider_instance.name}'s qualifications: #{provider_instance.qualifications}"
     if provider_instance.title != nil

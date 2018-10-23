@@ -25,8 +25,10 @@ class CLI
       UserInputExe.choice_4
     elsif user_input == 5
       UserInputExe.choice_5
-    else
+    elsif user_input == 6
       UserInputExe.choice_6
+    else
+      UserInputExe.choice_7
     end
 
     start
@@ -35,7 +37,7 @@ class CLI
 
 
   def valid?(user_input)
-    if user_input >= 1 && user_input <= 6
+    if user_input >= 1 && user_input <= 7
       true
     else
       Printer.list_right_options
