@@ -28,7 +28,7 @@ class CLI
     elsif user_input == 6
       UserInputExe.choice_6
     else
-      UserInputExe.choice_7
+      abort("Thanks so much for using Health Clinic Scraper!")
     end
 
     start
