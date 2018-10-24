@@ -10,10 +10,9 @@ class Provider
     @name = attr_hash[:name]
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
-    @specialites = attr_hash[:specialties] #.split(",").collect{|specialty| specialty.strip}
-
+    @specialites = attr_hash[:specialties]
     @team = attr_hash[:team]
-    @languages = attr_hash[:languages] #.split(",").collect{|language| language.strip}
+    @languages = attr_hash[:languages]
 
 
     @@all << self
@@ -21,7 +20,7 @@ class Provider
   end
 
   def self.find_by_team(team)
-    @@all.select{ |provider| provider.team.upcase == team.upcase}
+    @@all.select{ |provider| provider.team == team}
   end
 
   def self.find_by_name(name)
