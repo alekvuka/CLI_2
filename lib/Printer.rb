@@ -6,7 +6,7 @@ class Printer
 
   def self.warning_message
     puts "======================================================================================================"
-    puts "!!!!!!!!   The doctor, team or specialty that you have choosen does not exit in this clinic   !!!!!!!!"
+    puts "!!!!!!!!!   The doctor, team or specialty or language that you have choosen does not exit    !!!!!!!!!"
     puts "======================================================================================================"
   end
 
@@ -22,7 +22,7 @@ class Printer
 
   def self.print_from_arr_of_s(array_to_print)
 
-    if array_to_print.length == 0
+    if array_to_print.length == 0 || array_to_print == nil
       warning_message
     else
       puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
@@ -61,12 +61,16 @@ class Printer
 
 
   def self.print_from_arr_of_o(instances_of_objects)
-    puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
-    instances_of_objects.each do |object|
-      puts object.name
+    if instances_of_objects == nil
+      warning_message
+    else
+      puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
+      instances_of_objects.each do |object|
+        puts object.name
+      end
+      puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
+      puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     end
-    puts "^^^^^^                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                       ^^^^^^^"
-    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
   end
 
 
