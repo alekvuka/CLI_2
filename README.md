@@ -1,15 +1,15 @@
-# CLI2
+# Health Clinic Scraper
 
-CLI_2 scrapes provider's name, specialties, teams, languages and other attributes from a health clinic's website directory. CLI_2 organizes these attributes so that they can be easily interrogated by the user. The user can interact with the program though a CLI menu which displays the options on what information the user can gather from the collected data.
+Health Clinic Scraper scrapes provider's name, specialties, teams, languages and other attributes from a health clinic's website directory. CLI_2 organizes these attributes so that they can be easily interrogated by the user. The user can interact with the program though a CLI menu which displays the options on what information the user can gather from the collected data.
 
-CLI_2 is designed to be easily modified so that you can use it as a template when collecting and organizing information from your specific health clinic's website. 
+Health Clinic Scraper is designed to be easily modified so that you can use it as a template when collecting and organizing information from your specific health clinic's website.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'CLI_2'
+gem 'health_clinic_scraper'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install CLI_2
+    $ gem install health_clinic_scraper
 
 
 ## Development
