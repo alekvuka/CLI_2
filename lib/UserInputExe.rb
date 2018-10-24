@@ -45,10 +45,8 @@ class UserInputExe
 
   def self.choice_4
 
-    array_of_specialties = Providers.all.map {|provider| provider.specialites.split(",")} #.join(",").split(",").uniq
-    binding.pry
-
-    Printer.print_from_arr_of_s(array_of_specialties)
+    array_of_specialties = Providers.all.map {|provider| provider.specialites}.join(",").split(",")
+    Printer.print_from_arr_of_s(array_of_specialties.map {|specialty| specialty.strip}.uniq)
 
     puts "Which specialty?"
     user_input = gets.strip
