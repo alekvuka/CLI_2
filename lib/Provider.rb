@@ -1,5 +1,5 @@
 
-class Providers
+class Provider
 
   @@all = Array.new
 
@@ -45,7 +45,7 @@ class Providers
       @@all.select{ |provider| provider.specialites.include?(specialty)}
     else
       nil
-    end 
+    end
 
   end
 
