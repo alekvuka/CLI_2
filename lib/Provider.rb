@@ -10,7 +10,7 @@ class Provider
     @name = attr_hash[:name]
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
-    @specialites = attr_hash[:specialties].split(",")
+    @specialites = attr_hash[:specialties].split(",").collect{|specialty| specialty.strip}
 
     @team = attr_hash[:team]
     @languages = attr_hash[:languages].split(",").collect{|language| language.strip}
@@ -30,20 +30,9 @@ class Provider
 
   def self.find_by_language(language)
 
-    languages_s = Array.new
+    languages = @@all.map {|provider| provider.languages}.join(",").split(",").uniq
 
-    lang = @@all.map do |provider|
-        provider.languages
-      end
-
-    binding.pry
-
-
-    lang = @@all.map {|provider| provider.languages.split(",")}.join(",").split(",")
-    lang = lang.map {|language| language.strip}.uniq
-
-
-    if lang.any?{|lag| lag == language}
+    if languages.any?{|lang| lang.upcase == language.upcase}
         @@all.select{|provider| provider.languages.include?(language)}
     else
       nil
