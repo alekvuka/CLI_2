@@ -32,7 +32,8 @@ class Providers
   end
 
   def self.find_by_specialty(specialty)
-    @@all.select{ |provider| provider.specialty.include?(specialty)}
+    y = @@all.select{ |provider| provider.specialites.include?(specialty)}
+    binding.pry
   end
 
   def self.all
