@@ -14,12 +14,11 @@ class UserChoice
     user_input = gets.strip
 
     req_provider = Provider.all.detect do |provider|
-                        user_input == provider.name
+                        user_input.upcase == provider.name.upcase
                       end
 
     if req_provider == nil
       Printer.warning_message
-      choice_2
     else
       Printer.print_whole_profile(req_provider)
     end

@@ -61,7 +61,7 @@ class Printer
 
 
   def self.print_from_arr_of_o(instances_of_objects)
-    if instances_of_objects == nil
+    if instances_of_objects == nil || instances_of_objects.size == 0 
       warning_message
     else
       puts "<<<<<<<<<<<<                HERE IS THE LIST:                             >>>>>>>>>>>"
