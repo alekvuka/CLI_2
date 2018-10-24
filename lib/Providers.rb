@@ -28,7 +28,14 @@ class Providers
   end
 
   def self.find_by_language(language)
-    @@all.select{ |provider| provider.languages.include?(language)}
+
+    lang = @@all.map {|provider| provider.languages.split(",")}
+    binding.pry
+    if lang.any?{|lag| lag == language}
+        @@all.select{|provider| provider.languages.include?(language)}
+    else
+      nil
+    end
   end
 
   def self.find_by_specialty(specialty)
