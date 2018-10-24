@@ -10,10 +10,10 @@ class Provider
     @name = attr_hash[:name]
     @title = attr_hash[:title]
     @qualifications = attr_hash[:qualification]
-    @specialites = attr_hash[:specialties].split(",").collect{|specialty| specialty.strip}
+    @specialites = attr_hash[:specialties] #.split(",").collect{|specialty| specialty.strip}
 
     @team = attr_hash[:team]
-    @languages = attr_hash[:languages].split(",").collect{|language| language.strip}
+    @languages = attr_hash[:languages] #.split(",").collect{|language| language.strip}
 
 
     @@all << self

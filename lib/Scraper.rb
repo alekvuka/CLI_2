@@ -45,16 +45,18 @@ class Scraper
     doc.css(".middleColumn_three").css('ul').each do |provider|
       team_specialties_languanges = provider.text.split("\n").reject { |n| n == "" }
 
+
       #remove words that end with ":"
       team_specialties_languanges = team_specialties_languanges.map do |ele|
         ele.gsub(/\w+[:]/, "").strip
+
       end
 
       #accointing for use case where attribute team is missing
       if team_specialties_languanges.size == 2
-        array_of_providers[i][:specialties] = team_specialties_languanges[0].strip
-        array_of_providers[i][:languages] = team_specialties_languanges[1]
-  
+        array_of_providers[i][:specialties] = team_specialties_languanges[0].split(",").collect{|specialty| specialty.strip}
+        array_of_providers[i][:languages] = team_specialties_languanges[1].split(",").collect{|language| language.strip}
+
 
       else
         if team_specialties_languanges[0].strip.length == 7 && team_specialties_languanges[0].include?("Purple")
