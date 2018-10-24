@@ -31,19 +31,19 @@ class Provider
   def self.find_by_language(language)
 
     languages = @@all.map {|provider| provider.languages}.join(",").split(",").uniq
-
     if languages.any?{|lang| lang.upcase == language.upcase}
-        @@all.select{|provider| provider.languages.include?(language)}
+        @@all.select{|provider| provider.languages.map(&:upcase).include?(language.upcase)}
     else
       nil
     end
+
   end
 
   def self.find_by_specialty(specialty)
-    spec = @@all.map {|provider| provider.specialites.split(",")}.join(",").split(",")
-    spec = spec.map {|specialty| specialty.strip}.uniq
-    if spec.any?{|s| s == specialty}
-      @@all.select{ |provider| provider.specialites.include?(specialty)}
+
+    specialites = @@all.map {|provider| provider.specialites}.join(",").split(",").uniq
+    if specialites.any?{|s| s.upcase == specialty.upcase}
+      @@all.select{ |provider| provider.specialites.map(&:upcase).include?(specialty.upcase)}
     else
       nil
     end
