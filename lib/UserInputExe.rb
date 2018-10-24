@@ -58,8 +58,24 @@ class UserInputExe
 
 
   def self.choice_5
-    array_of_languages = Providers.all.map {|provider| provider.language}.uniq
-    Printer.print_from_arr_of_s(array_of_languages)
+    array_of_languages = Providers.all.map {|provider| provider.languages}
+
+    array_to_print = Array.new
+    ary = Array.new
+    array_of_languages.each do |languages|
+        ary = languages.split(",")
+        i = 0
+        while i < ary.size
+
+          ary[i] = ary[i].strip
+          i+=1
+        end
+        array_to_print << ary
+    end
+
+    array_to_print = array_to_print.join(",").split(",").uniq
+
+    Printer.print_from_arr_of_s(array_to_print)
 
     puts "Which language?"
     user_input = gets.strip
@@ -87,6 +103,6 @@ class UserInputExe
   end
 
   def self.choice_7
-  end 
+  end
 
 end

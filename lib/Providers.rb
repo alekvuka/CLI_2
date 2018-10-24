@@ -28,7 +28,7 @@ class Providers
   end
 
   def self.find_by_language(language)
-    @@all.select{ |provider| provider.language.include?(language)}
+    @@all.select{ |provider| provider.languages.include?(language)}
   end
 
   def self.find_by_specialty(specialty)
