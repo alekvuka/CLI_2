@@ -16,17 +16,17 @@ class CLI
     valid?(user_input)
 
     if user_input == 1
-      UserInputExe.choice_1
+      UserChoice.choice_1
     elsif user_input == 2
-      UserInputExe.choice_2
+      UserChoice.choice_2
     elsif user_input == 3
-      UserInputExe.choice_3
+      UserChoice.choice_3
     elsif user_input == 4
-      UserInputExe.choice_4
+      UserChoice.choice_4
     elsif user_input == 5
-      UserInputExe.choice_5
+      UserChoice.choice_5
     elsif user_input == 6
-      UserInputExe.choice_6
+      UserChoice.choice_6
     else
       abort("Thanks so much for using Health Clinic Scraper!")
     end

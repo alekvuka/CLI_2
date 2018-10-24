@@ -92,14 +92,10 @@ class Printer
   end
 
 
-
-
-
   def self.get_choice_from_above
     puts "Please choose from the list above to get the relevant providers:"
     user_input = gets.strip
   end
-
 
 
   def self.print_this(for_printing)
