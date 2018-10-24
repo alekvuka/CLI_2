@@ -1,6 +1,6 @@
 # Health Clinic Scraper
 
-Health Clinic Scraper scrapes provider's name, specialties, teams, languages and other attributes from a health clinic's website directory. CLI_2 organizes these attributes so that they can be easily interrogated by the user. The user can interact with the program though a CLI menu which displays the options on what information the user can gather from the collected data.
+Health Clinic Scraper scrapes provider's name, specialties, teams, languages and other attributes from a health clinic's website directory. Health Clinic Scraper organizes these attributes so that they can be easily interrogated by the user. The user can interact with the program though a CLI menu which displays the options on what information the user can gather from the collected data.
 
 Health Clinic Scraper is designed to be easily modified so that you can use it as a template when collecting and organizing information from your specific health clinic's website.
 
