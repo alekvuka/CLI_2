@@ -20,11 +20,11 @@ class Provider
   end
 
   def self.find_by_team(team)
-    @@all.select{ |provider| provider.team == team}
+    @@all.select{ |provider| provider.team.upcase == team.upcase}
   end
 
   def self.find_by_name(name)
-    @@all.find{ |provider| provider.name == name}
+    @@all.find{ |provider| provider.name.upcase == name.upcase}
   end
 
   def self.find_by_language(language)
