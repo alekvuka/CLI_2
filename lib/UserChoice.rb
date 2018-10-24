@@ -1,5 +1,5 @@
-class UserChoice
 
+class UserChoice
 
 
   def self.choice_1

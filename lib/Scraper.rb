@@ -1,6 +1,4 @@
 
-
-
 class Scraper
 
   def self.scrape_page(clinic_url = "http://callen-lorde.org/meet-our-providers/")
