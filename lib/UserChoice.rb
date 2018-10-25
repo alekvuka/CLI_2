@@ -80,7 +80,11 @@ class UserChoice
     if  provider == nil
       Printer.warning_message_team
     else
-      Printer.print_this(provider.team)
+      if provider.team == nil
+        Printer.warning_message_team
+      else
+        Printer.print_this(provider.team)
+      end 
     end
 
   end

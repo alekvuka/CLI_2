@@ -13,7 +13,7 @@ class Printer
 
   def self.warning_message_team
     puts "======================================================================================================"
-    puts "!!!!!!!!     You've chosen a doctor that either does not exist or is not part os any team     !!!!!!!!"
+    puts "!!!!!!!!     You've chosen a doctor that either does not exist or is not part of any team     !!!!!!!!"
     puts "======================================================================================================"
   end
 
