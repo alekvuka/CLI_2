@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
 
-
-require_relative "../lib/environment"
-
-
+require_relative "environment.rb"
 CLI.new.start
