@@ -80,8 +80,18 @@ class Printer
     if provider_instance.team != nil
       puts "#{provider_instance.name}'s team: #{provider_instance.team}"
     end
-    puts "#{provider_instance.name}'s specialties: #{provider_instance.specialites}"
-    puts "#{provider_instance.name}'s languages: #{provider_instance.languages}"
+
+    specialties_list = ""
+    provider_instance.specialites.each {|specialty| specialties_list = "#{specialties_list} #{specialty}"}
+    specialties_list = specialties_list.strip.gsub(" ", ", ")
+
+    languages_list = ""
+    provider_instance.languages.each {|languages| languages_list = "#{languages_list} #{languages}"}
+    languages_list = languages_list.strip.gsub(" ", ", ")
+
+
+    puts "#{provider_instance.name}'s specialties: #{specialties_list}"
+    puts "#{provider_instance.name}'s languages: #{languages_list}"
     puts "#{provider_instance.name}'s qualifications: #{provider_instance.qualifications}"
     if provider_instance.title != nil
       puts "#{provider_instance.name}'s title: #{provider_instance.title}"
